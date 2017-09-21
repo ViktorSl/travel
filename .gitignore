@@ -15,7 +15,10 @@ node_modules/
 # OS or Editor folders
 .DS_Store
 .vscode
+<<<<<<< HEAD
 .idea
+=======
+>>>>>>> our-features
 Thumbs.db
 .cache
 .project
