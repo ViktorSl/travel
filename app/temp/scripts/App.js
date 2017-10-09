@@ -83,13 +83,11 @@
 	  _createClass(MobileMenu, [{
 	    key: "event",
 	    value: function event() {
-	      console.log(this);
 	      this.menuIcon.click(this.toggleTheMenu.bind(this));
 	    }
 	  }, {
 	    key: "toggleTheMenu",
 	    value: function toggleTheMenu() {
-	      console.log(this);
 	      this.menuContent.toggleClass("site-header__menu-content--is--visible");
 	      this.siteHeader.toggleClass("site-header--is-expanded");
 	      this.menuIcon.toggleClass("site-header__menu-icon--close-x");
