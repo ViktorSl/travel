@@ -8,8 +8,8 @@ class StickyHeader {
     this.headerTriggerElement = $(".large-hero__title");
     this.createHeaderWaypoint();
     this.pageSections = $(".page-section");
-    this.createPageSectionsWaypoints();
     this.headerLinks = $(".primary-nav a");
+    this.createPageSectionWaypoints();
     this.addSmoothScrolling();
   }
 
@@ -18,28 +18,28 @@ class StickyHeader {
   }
 
   createHeaderWaypoint() {
-    let that = this;
+    var that = this;
     new Waypoint({
       element: this.headerTriggerElement[0],
       handler: function(direction) {
-        if(direction === "down") {
+        if (direction == "down") {
           that.siteHeader.addClass("site-header--dark");
-        }else {
+        } else {
           that.siteHeader.removeClass("site-header--dark");
         }
       }
-    })
+    });
   }
 
-  createPageSectionsWaypoints() {
-    let that = this;
+  createPageSectionWaypoints() {
+    var that = this;
     this.pageSections.each(function() {
-      let currentPageSection = this;
+      var currentPageSection = this;
       new Waypoint({
         element: currentPageSection,
         handler: function(direction) {
-          if(direction === "down") {
-            let matchingHeaderLink = currentPageSection.getAttribute("data-matching-link");
+          if (direction == "down") {
+            var matchingHeaderLink = currentPageSection.getAttribute("data-matching-link");
             that.headerLinks.removeClass("is-current-link");
             $(matchingHeaderLink).addClass("is-current-link");
           }
@@ -50,17 +50,16 @@ class StickyHeader {
       new Waypoint({
         element: currentPageSection,
         handler: function(direction) {
-          if(direction === "up") {
-            let matchingHeaderLink = currentPageSection.getAttribute("data-matching-link");
+          if (direction == "up") {
+            var matchingHeaderLink = currentPageSection.getAttribute("data-matching-link");
             that.headerLinks.removeClass("is-current-link");
             $(matchingHeaderLink).addClass("is-current-link");
           }
         },
         offset: "-40%"
       });
-    })
+    });
   }
-
 }
 
 export default StickyHeader;
